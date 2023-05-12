@@ -29,11 +29,8 @@ HOST=""
 # =================== funct =====
 # shell - exec command, return stdout, stderr; improvable
 def shell(cmd):
-	sh_out=os.popen(SHELL+" "+cmd).readlines()
-	nsh_out=""
-	for i in range(len(sh_out)):	
-		nsh_out+=sh_out[i]
-	return nsh_out	
+	sh_out = os.popen(f"{SHELL} {cmd}").readlines()
+	return "".join(sh_out[i] for i in range(len(sh_out)))	
 
 # action?
 def action(conn):
